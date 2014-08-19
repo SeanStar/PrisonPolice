@@ -1,0 +1,36 @@
+name: PrisonPolice
+version: 0.2
+authors: [SeanStar]
+main: st.sean.prisonpolice.PrisonPolice
+depend: [SQLibrary, Vault]
+description: Police plugin for Frostburn Prison
+commands:
+   prisonpolice:
+      description: Prison Police plugin info.
+      usage: |
+            /prisonpolice - Shows wanted players list
+            /prisonpolice reload - Reloads configuration
+      permission: prisonpolice.info
+permissions:
+    prisonpolice.*:
+        description: Gives access to all police commands.
+        children:
+            prisonpolice.reload: true
+            prisonpolice.stick: true
+            prisonpolice.info: true
+            prisonpolice.freeplayer: false
+            prisonpolice.fugitive: false
+    prisonpolice.reload:
+        description: Allows you to reload configuration.
+        default: op
+    prisonpolice.stick:
+        description: Allows you to use baton.
+        default: op
+    prisonpolice.info:
+        description: Allows you to run command.
+        default: op
+    prisonpolice.freeplayer:
+        description: Logs illegalblocks, allows you to jail with evidence of illegal block.
+        default: true
+    prisonpolice.fugitive:
+        description: Allows rank with prisonpolice.stick to jail on site, no evidence needed.
